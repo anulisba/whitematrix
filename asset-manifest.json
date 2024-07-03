@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/whiteline/static/css/main.015d2ca4.css",
+    "main.js": "/whiteline/static/js/main.ffe57dd0.js",
+    "static/js/453.59b8a61b.chunk.js": "/whiteline/static/js/453.59b8a61b.chunk.js",
+    "static/media/partner2.jpg": "/whiteline/static/media/partner2.f81a5c7d299fc1fd0e20.jpg",
+    "static/media/bg.png": "/whiteline/static/media/bg.0146871a5dd00845830b.png",
+    "static/media/GothamLight.ttf": "/whiteline/static/media/GothamLight.03e7ff609ba3bf798fa4.ttf",
+    "static/media/logo.png": "/whiteline/static/media/logo.45cf2e389e1aadd5744b.png",
+    "static/media/partner1.jpg": "/whiteline/static/media/partner1.186d697ef9618e834681.jpg",
+    "static/media/Gotham-Bold.otf": "/whiteline/static/media/Gotham-Bold.f9a5c9247af2c80333f4.otf",
+    "index.html": "/whiteline/index.html",
+    "main.015d2ca4.css.map": "/whiteline/static/css/main.015d2ca4.css.map",
+    "main.ffe57dd0.js.map": "/whiteline/static/js/main.ffe57dd0.js.map",
+    "453.59b8a61b.chunk.js.map": "/whiteline/static/js/453.59b8a61b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.015d2ca4.css",
+    "static/js/main.ffe57dd0.js"
+  ]
+}
