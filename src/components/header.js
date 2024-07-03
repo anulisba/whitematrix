@@ -1,71 +1,49 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import './header.css';
-import profilePhoto from '../assets/images/image.jpeg'; // Ensure this path is correct
-import carSideIcon from '../assets/images/car-side-svgrepo-com.svg';
-import carService from '../assets/images/car-service-icon.svg';
-function Header() {
+import logo from './assets/logo.png';
+import Drawer from './drawer';
+import WhoWeAre from './WhoWeAre';
+import WhyChooseUs from './WhyChooseUs';
+import WhatWeDo from './WhatWeDo';
+import ContactUs from './ContactUs';
+
+const Header = () => {
+    const headerRef = useRef(null);
+    const [isDrawerOpen, setDrawerOpen] = useState(false);
+    const [drawerContent, setDrawerContent] = useState(null);
+
+    const toggleDrawer = (content) => {
+        setDrawerContent(content);
+        setDrawerOpen(true);
+        toggleMenu(); // Close the menu when an item is selected
+    };
+
+    const toggleMenu = () => {
+        const header = headerRef.current;
+        if (header) {
+            header.classList.toggle('active');
+        }
+    };
+
     return (
-        <header className="header">
-
-            <h1>WELCOME TO <span>247 FLEET MANAGER</span></h1>
-            <div class="search-container">
-                <input className=" " type="text" placeholder="SEARCH" />
-            </div>
-            <div class="icons-container">
-                <i class="fas fa-exclamation-circle"></i>
-                <i class="fas fa-comment-dots"></i>
-            </div>
-            <div class="vertical-line"></div>
-            <div class="profile-container">
-                <img src={profilePhoto} alt="Profile" class="profile-photo" />
-            </div>
-
-
-            <div className="stats">
-                <div className="stat-card">
-                    <div className="stat-icon">
-                        <img src={carSideIcon} alt="Number of Trips Icon" />
-                    </div>
-                    <div className='vertical-line-car'></div>
-                    <div>
-                        <div className="stat-label">Number of Trips</div>
-                        <div className="stat-value">2,142,950</div>
-                    </div>
+        <>
+            <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
+                {drawerContent}
+            </Drawer>
+            <header className="headers" ref={headerRef}>
+                <div className="logo">
+                    <img src={logo} alt="Logo" />
                 </div>
-                <div className="stat-card">
-                    <div className="stat-icon">
-                        <img src={carSideIcon} alt="Weekly Trips Icon" />
-                    </div>
-                    <div className='vertical-line-car'></div>
-                    <div>
-                        <div className="stat-label">Weekly Trips</div>
-                        <div className="stat-value">2,142,950</div>
-                    </div>
-                </div>
-                <div className="stat-card">
-                    <div className="stat-icon">
-                        <img src={carSideIcon} alt="Monthly Trips Icon" />
-                    </div>
-                    <div className="vertical-line-car"></div>
-                    <div>
-                        <div className="stat-label">Monthly Trips</div>
-                        <div className="stat-value">2,142,950</div>
-                    </div>
-                </div>
-                <div className="stat-card">
-                    <div className="stat-icon">
-                        <img src={carSideIcon} alt="Daily Trips Icon" />
-                    </div>
-                    <div className='vertical-line-car'>
-                    </div>
-                    <div>
-                        <div className="stat-label">Daily Trips</div>
-                        <div className="stat-value">232,000</div>
-                    </div>
-                </div>
-            </div>
-        </header>
+                <nav className="nav">
+                    <a href="#home" onClick={(e) => { e.preventDefault(); toggleDrawer(<WhoWeAre />); }}>Who are we</a>
+                    <a href="#about" onClick={(e) => { e.preventDefault(); toggleDrawer(<WhyChooseUs />); }}>Why Choose Us</a>
+                    <a href="#services" onClick={(e) => { e.preventDefault(); toggleDrawer(<WhatWeDo />); }}>What Do We Do</a>
+                    <a href="#pricing" onClick={(e) => { e.preventDefault(); toggleDrawer(<ContactUs />); }}>Contact Us</a>
+                </nav>
+                <div className="toggle" onClick={toggleMenu}></div>
+            </header>
+        </>
     );
-}
+};
 
 export default Header;

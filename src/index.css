@@ -1,13 +1,10 @@
-/* Define the light version of the font */
 @font-face {
   font-family: 'Gotham';
   src: url('/public/fonts/GothamLight.ttf') format('opentype');
   font-weight: 300;
-  /* Light weight */
   font-style: normal;
 }
 
-/* Define the bold version of the font */
 @font-face {
   font-family: 'Gotham';
   src: url('/public/fonts/Gotham-Bold.otf') format('opentype');
@@ -16,14 +13,21 @@
   font-style: normal;
 }
 
-
 body {
   margin: 0;
   font-family: 'Gotham', sans-serif;
-  background-color: white;
-
-
   /* Adding a solid white border */
+  background: #5b1e4a;
+  background-image: url('components/assets/bg.png');
+  background-position: bottom right; /* Positions the image in the bottom-right corner */
+  background-size: 60% auto; /* Adjusts the size of the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  align-items: center;
+  justify-content: center;
+  color: black;
+  top: 0;
+  z-index: 10;
+  background-attachment: fixed; /* Fixes the background on scroll */
 }
 
 h1 {
